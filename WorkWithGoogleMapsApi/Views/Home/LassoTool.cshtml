@@ -1,0 +1,22 @@
+﻿
+<div id="map_canvas" style="width: 98%; height: 400px; position: relative; overflow: hidden; transform: translateZ(0px); background-color: rgb(229, 227, 223);">
+    <div align="center" id="area">0 m²</div>
+    <div align="center" id="areakm">0 km²</div>
+</div>
+
+@section scripts{
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCKD30Yz0sZgbS0CRnG1WLsYVcbjzdZBGY">
+    </script>
+    <script type="text/javascript" charset="UTF-8" src="http://maps.google.com/maps-api-v3/api/js/22/8/intl/bg_ALL/common.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="http://maps.google.com/maps-api-v3/api/js/22/8/intl/bg_ALL/map.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="http://maps.google.com/maps-api-v3/api/js/22/8/intl/bg_ALL/util.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="http://maps.google.com/maps-api-v3/api/js/22/8/intl/bg_ALL/geometry.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="http://maps.google.com/maps-api-v3/api/js/22/8/intl/bg_ALL/poly.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="http://maps.google.com/maps-api-v3/api/js/22/8/intl/bg_ALL/onion.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="http://maps.google.com/maps-api-v3/api/js/22/8/intl/bg_ALL/controls.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="http://maps.google.com/maps-api-v3/api/js/22/8/intl/bg_ALL/stats.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="http://maps.google.com/maps-api-v3/api/js/22/8/intl/bg_ALL/marker.js"></script>
+    @Scripts.Render("~/Scripts/jquery-ui-1.8.24.min.js")
+    @Scripts.Render("~/Scripts/lasso-tool.js")
+    <script type="text/javascript">initialize()</script>
+}

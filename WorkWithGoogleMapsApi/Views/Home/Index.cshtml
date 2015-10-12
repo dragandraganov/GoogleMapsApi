@@ -1,0 +1,48 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<select id="select-from">
+    <option>
+        --From--
+    </option>
+    <option value="Varna">
+        Varna
+    </option>
+    <option value="Shumen">
+        Shumen
+    </option>
+    <option value="Sofia">
+        Sofia
+    </option>
+</select>
+
+<select id="select-to">
+    <option>
+        --To--
+    </option>
+    <option value="Varna">
+        Varna
+    </option>
+    <option value="Shumen">
+        Shumen
+    </option>
+    <option value="Sofia">
+        Sofia
+    </option>
+</select>
+<div class="btn btn-sm btn-info"></div>
+
+<canvas id="canvas">
+
+</canvas>
+
+@section scripts{
+    <script type="text/javascript">
+        var canvas = document.getElementById("canvas");
+        var ctx = canvas.getContext("2d");
+        ctx.moveTo(0, 0);
+        ctx.lineTo(200, 100);
+        ctx.stroke();
+    </script>
+}
