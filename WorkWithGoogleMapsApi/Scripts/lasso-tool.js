@@ -29,30 +29,40 @@ function initialize() {
     Display();
 
     //delay by 200ms!
-    setTimeout('Regen()', 200);
+    setTimeout('AddMarkers()', 200);
 }
-function Regen() {
-    var bounds = map.getBounds();
-    var southWest = bounds.getSouthWest();
-    var northEast = bounds.getNorthEast();
-    var lngSpan = northEast.lng() - southWest.lng();
-    var latSpan = northEast.lat() - southWest.lat();
+
+function AddMarkers(instalations) {
+    //var bounds = map.getBounds();
+    //var southWest = bounds.getSouthWest();
+    //var northEast = bounds.getNorthEast();
+    //var lngSpan = northEast.lng() - southWest.lng();
+    //var latSpan = northEast.lat() - southWest.lat();
     //add random map points
     pointsrand = [];
-    for (var i = 0; i < 100; i++) {
-        var point = new google.maps.LatLng(southWest.lat() + latSpan * Math.random(), southWest.lng() + lngSpan * Math.random());
-        pointsrand.push(point);
-        //new code to show all markers in the start
+
+    //example
+    for (var i = 0; i < 10; i++) {
+        var point = new google.maps.LatLng(41.555555 + i / (10 - i), 25.000000 + i / (10 - i));
         var marker = placeMarkerred(point, i);
         randomMarkers.push(marker);
         marker.setMap(map);
     }
+
+    //for (var i = 0; i < instalations.length; i++) {
+    //    var point = new google.maps.LatLng(instalations[i].Latitude, instalations[i].Longitude);
+    //    var marker = placeMarkerred(point, i);
+    //    randomMarkers.push(marker);
+    //    marker.setMap(map);
+    //}
 }
+
 function mapclick(event) {
     points.push(event.latLng);
     //ShowHideONOFF = 0;
     Display();
 }
+
 function SearchPointsAdd() {
     markersInArea = new Array(0);
     if (!(polygon == undefined)) {
@@ -64,12 +74,14 @@ function SearchPointsAdd() {
         //}
 
         //show locations in polygon
-        for (var i = 0; i < pointsrand.length; ++i) {
-            if (polygon.containsLatLng(pointsrand[i])) {
-                var marker = placeMarkerred(pointsrand[i], i);
-                markersInArea.push(marker);
-                //marker.setMap(map);
+        for (var i = 0; i < randomMarkers.length; ++i) {
+            if (polygon.containsLatLng(randomMarkers[i].position)) {
+                markersInArea.push(randomMarkers[i]);
             }
+        }
+
+        if (markersInArea.length > 0) {
+            //do it something with markersInArea or call another function
         }
     }
 }
